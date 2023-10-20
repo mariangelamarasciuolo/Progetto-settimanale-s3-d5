@@ -13,6 +13,8 @@ public abstract class Catalogo {
     private int annoPubblicazione;
     private int pagine;
 
+    public Catalogo() {
+    }
     public Catalogo(String titolo, int annoPubblicazione, int pagine) {
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;

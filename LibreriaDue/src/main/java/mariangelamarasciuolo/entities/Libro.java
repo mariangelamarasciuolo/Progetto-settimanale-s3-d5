@@ -13,6 +13,8 @@ public class Libro extends Catalogo {
         this.autore = autore;
         this.genere = genere;
     }
+    public Libro() {
+    }
 
     public String getAutore() {
         return autore;
