@@ -32,7 +32,7 @@ private static EntityManagerFactory emf= JpaUtils.getEntityManagerFactory();
         Prestito prestito2 = new Prestito(riviste1, utente1,LocalDate.of(2023,10,9),LocalDate.now(),LocalDate.of(2023,10,15));
         Prestito prestito3 = new Prestito(riviste2, utente2,LocalDate.of(2023,9, 5),LocalDate.now(),null);
 
-        ud.save(utente1);
+        /*ud.save(utente1);
         ud.save(utente2);
 
         cd.save(libro1);
@@ -43,9 +43,9 @@ private static EntityManagerFactory emf= JpaUtils.getEntityManagerFactory();
 
         pd.save(prestito1);
         pd.save(prestito2);
-        pd.save(prestito3);
+        pd.save(prestito3);*/
 
-
+        cd.findByIsbnAndDelete(3);
 
         em.close();
         emf.close();

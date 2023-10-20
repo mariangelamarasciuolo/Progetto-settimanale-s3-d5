@@ -3,6 +3,7 @@ package mariangelamarasciuolo.dao;
 import mariangelamarasciuolo.entities.Catalogo;
 import mariangelamarasciuolo.entities.Libro;
 import mariangelamarasciuolo.entities.Rivista;
+import mariangelamarasciuolo.entities.Utente;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -13,7 +14,8 @@ public class CatalogoDAO {
     public CatalogoDAO(EntityManager em) {
         this.em = em;
     }
-    public void save (Catalogo c) {
+
+    public void save(Catalogo c) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
 
@@ -22,12 +24,25 @@ public class CatalogoDAO {
         transaction.commit();
         System.out.println("Elemento Salavto Correttamente!");
     }
-    public Libro findLibroById(long ISBN) {
-        return em.find(Libro.class, ISBN);
-    }
-    public Rivista findRivistaById(long ISBN) {
-        return em.find(Rivista.class, ISBN);
+
+    public Catalogo findCatalogoByIsbn(long ISBN) {
+        return em.find(Catalogo.class, ISBN);
     }
 
+    public void findByIsbnAndDelete(long ISBN) {
+        Catalogo found = em.find(Catalogo.class, ISBN);
 
+        if (found != null) {
+            EntityTransaction transaction = em.getTransaction();
+
+            transaction.begin();
+
+            em.remove(found);
+
+            transaction.commit();
+            System.out.println("Elemento cancellato Correttamente!");
+        } else {
+            System.err.println("L'elemento " + ISBN + " non è stato trovato");
+        }
+    }
 }
