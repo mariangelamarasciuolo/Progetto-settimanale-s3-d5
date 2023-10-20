@@ -1,15 +1,14 @@
 package mariangelamarasciuolo.entities;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
-@Table(name = "utente")
+@Table(name = "prestiti")
 public class Prestito {
+    @Id
+    @GeneratedValue
     private UUID id;
     @ManyToOne(cascade = CascadeType.ALL)
     private Catalogo elementoPrestato;
@@ -19,11 +18,11 @@ public class Prestito {
     private LocalDate dataRestituzionePrevista;
     private LocalDate dataRestituzuioneEffettiva;
 
-    public Prestito(Utente utente, Catalogo elementoPrestato, LocalDate dataInizioPrestito, LocalDate dataRestituzionePrevista, LocalDate dataRestituzuioneEffettiva) {
-        this.utente = utente;
+    public Prestito(Catalogo elementoPrestato, Utente utente, LocalDate dataInizioPrestito, LocalDate dataRestituzionePrevista, LocalDate dataRestituzuioneEffettiva) {
         this.elementoPrestato = elementoPrestato;
+        this.utente = utente;
         this.dataInizioPrestito = dataInizioPrestito;
-        this.dataRestituzionePrevista = dataRestituzionePrevista.plusDays(30);
+        this.dataRestituzionePrevista = dataRestituzionePrevista;
         this.dataRestituzuioneEffettiva = dataRestituzuioneEffettiva;
     }
 
