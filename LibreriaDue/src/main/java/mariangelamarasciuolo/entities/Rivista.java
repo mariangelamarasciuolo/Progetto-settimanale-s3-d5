@@ -29,7 +29,7 @@ public class Rivista extends Catalogo {
 
     @Override
     public String toString() {
-        return "Rivista{" +
+        return "Rivista{" + super.toString() +
                 "periodicita=" + periodicita +
                 '}';
     }

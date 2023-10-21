@@ -55,7 +55,6 @@ public abstract class Catalogo {
                 "ISBN=" + ISBN +
                 ", titolo='" + titolo + '\'' +
                 ", annoPubblicazione=" + annoPubblicazione +
-                ", pagine=" + pagine +
-                '}';
+                ", pagine=" + pagine + '\'';
     }
 }

@@ -8,6 +8,7 @@ import mariangelamarasciuolo.entities.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 public class Application {
@@ -45,7 +46,10 @@ private static EntityManagerFactory emf= JpaUtils.getEntityManagerFactory();
         pd.save(prestito2);
         pd.save(prestito3);*/
 
-        cd.findByIsbnAndDelete(3);
+
+        System.out.println(cd.findElemntoByIsbn(5));
+
+        //cd.findByIsbnAndDelete(6);
 
         em.close();
         emf.close();

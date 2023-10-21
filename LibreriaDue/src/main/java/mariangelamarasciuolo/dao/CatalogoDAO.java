@@ -1,9 +1,6 @@
 package mariangelamarasciuolo.dao;
 
 import mariangelamarasciuolo.entities.Catalogo;
-import mariangelamarasciuolo.entities.Libro;
-import mariangelamarasciuolo.entities.Rivista;
-import mariangelamarasciuolo.entities.Utente;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -25,9 +22,11 @@ public class CatalogoDAO {
         System.out.println("Elemento Salavto Correttamente!");
     }
 
-    public Catalogo findCatalogoByIsbn(long ISBN) {
-        return em.find(Catalogo.class, ISBN);
+    public Catalogo findElemntoByIsbn(long ISBN) {
+    return em.find(Catalogo.class, ISBN);
     }
+
+
 
     public void findByIsbnAndDelete(long ISBN) {
         Catalogo found = em.find(Catalogo.class, ISBN);
