@@ -58,6 +58,12 @@ public class CatalogoDAO {
         return getAllQuery.getResultList();
     }
 
+///////cerco per titolo o parte di esso
+    public List<Catalogo> findByTitle(String titolo) {
+        TypedQuery<Catalogo> getCatalogo = em.createNamedQuery("findByPartialName", Catalogo.class);
+        getCatalogo.setParameter("titolo", titolo);
+        return getCatalogo.getResultList();
+    }
 
 
 }

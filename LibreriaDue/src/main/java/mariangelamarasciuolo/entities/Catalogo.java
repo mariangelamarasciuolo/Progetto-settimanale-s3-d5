@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "catalogo")
+@NamedQueries(@NamedQuery(name = "findByPartialName", query = "SELECT c FROM Catalogo c WHERE LOWER(c.titolo) LIKE LOWER(CONCAT('%', :titolo, '%'))"))
 public abstract class Catalogo {
     @Id
     @GeneratedValue

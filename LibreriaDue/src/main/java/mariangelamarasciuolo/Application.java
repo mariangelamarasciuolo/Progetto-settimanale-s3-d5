@@ -57,6 +57,9 @@ private static EntityManagerFactory emf= JpaUtils.getEntityManagerFactory();
 
         System.out.println(li.findByAuthor("Peppino Magnarone"));
 
+        System.out.println(cd.findByTitle("lien"));
+
+
         em.close();
         emf.close();
 
