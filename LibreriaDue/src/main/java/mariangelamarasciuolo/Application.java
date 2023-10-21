@@ -1,6 +1,7 @@
 package mariangelamarasciuolo;
 
 import mariangelamarasciuolo.dao.CatalogoDAO;
+import mariangelamarasciuolo.dao.LibroDAO;
 import mariangelamarasciuolo.dao.PrestitoDAO;
 import mariangelamarasciuolo.dao.UtenteDAO;
 import mariangelamarasciuolo.entities.*;
@@ -19,6 +20,7 @@ private static EntityManagerFactory emf= JpaUtils.getEntityManagerFactory();
         CatalogoDAO cd = new CatalogoDAO(em);
         UtenteDAO ud = new UtenteDAO(em);
         PrestitoDAO pd = new PrestitoDAO(em);
+        LibroDAO li = new LibroDAO(em);
 
         Utente utente1 = new Utente("Gerardo", "Lamonarca", LocalDate.of(1990,6,5));
         Utente utente2 = new Utente("Raffaella", "Grande", LocalDate.of(1985,6,5));
@@ -50,6 +52,10 @@ private static EntityManagerFactory emf= JpaUtils.getEntityManagerFactory();
         System.out.println(cd.findElemntoByIsbn(5));
 
         //cd.findByIsbnAndDelete(6);
+
+        System.out.println(cd.findByYear(2022));
+
+        System.out.println(li.findByAuthor("Peppino Magnarone"));
 
         em.close();
         emf.close();

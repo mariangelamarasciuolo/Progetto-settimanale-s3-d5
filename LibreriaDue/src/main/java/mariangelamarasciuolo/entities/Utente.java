@@ -12,7 +12,7 @@ import java.util.UUID;
 public class Utente {
     @Id
     @GeneratedValue
-    private UUID numeroTessera;
+    private long numeroTessera;
     private String nome;
     private String cognome;
     private LocalDate dataDiNascita;
@@ -23,7 +23,7 @@ public class Utente {
         this.dataDiNascita = dataDiNascita;
     }
 
-    public UUID getNumeroTessera() {
+    public long getNumeroTessera() {
         return numeroTessera;
     }
 
